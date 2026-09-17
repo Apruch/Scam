@@ -401,6 +401,21 @@
   .home-view h3{ font-family:'Sora',sans-serif; font-size:20px; margin:0; }
   .home-view .tag{ font-size:12.5px; opacity:0.75; max-width:220px; line-height:1.5; }
   .home-view .tapme{ margin-top:18px; font-size:11.5px; letter-spacing:0.06em; text-transform:uppercase; font-weight:700; opacity:0.55; }
+  .home-view .cta-group{ display:flex; flex-direction:column; gap:9px; margin-top:20px; width:100%; }
+  .cta-btn{ font-family:'Inter',sans-serif; font-size:12.5px; font-weight:600; padding:12px 14px; border-radius:12px; border:none; cursor:pointer; width:100%; transition:transform .12s ease, opacity .12s ease; }
+  .cta-btn:active{ transform:scale(0.97); }
+  .cta-btn.primary{ background:#fff; color:#12203D; }
+  .cta-btn.secondary{ background:rgba(255,255,255,0.12); color:#fff; border:1px solid rgba(255,255,255,0.28); }
+  .entry-note{ font-size:11px; opacity:0.6; margin-top:14px; line-height:1.5; max-width:220px; }
+
+  .manual-view .field{ margin-bottom:15px; text-align:left; }
+  .manual-view label{ font-size:11px; font-weight:700; color:#5B6072; text-transform:uppercase; letter-spacing:0.03em; display:block; margin-bottom:7px; }
+  .manual-view select, .manual-view input{ width:100%; padding:11px 12px; border-radius:10px; border:1.5px solid #E3E1D8; font-size:12.5px; font-family:'Inter',sans-serif; color:#16181D; background:#F9F8F5; }
+  .manual-view .hint{ font-size:11px; color:#8A8F9C; margin-top:14px; line-height:1.5; }
+
+  .qprogress{ display:flex; gap:5px; margin-bottom:18px; }
+  .qprogress .seg{ flex:1; height:4px; border-radius:3px; background:#EFE9DC; }
+  .qprogress .seg.filled{ background:#5B6072; }
 
   .call-card{ background:#F3F4F7; border-radius:20px; padding:26px 18px; text-align:center; margin-top:26px; }
   .call-card .avatar{ width:64px;height:64px;border-radius:50%; background:#D8DCE6; margin:0 auto 14px; display:flex; align-items:center; justify-content:center; }
@@ -410,6 +425,25 @@
   .call-btn{ width:54px;height:54px;border-radius:50%; display:flex; align-items:center; justify-content:center; border:none; }
   .call-btn.accept{ background:#2F8F86; }
   .call-btn.decline{ background:#C6503B; }
+
+  .callactive-view{ text-align:center; align-items:center; }
+  .callactive-view .avatar{ width:64px;height:64px;border-radius:50%; background:#D8DCE6; margin:14px auto 12px; display:flex;align-items:center;justify-content:center; }
+  .callactive-view .number{ font-family:'Sora',sans-serif; font-weight:700; font-size:16px; }
+  .callactive-view .status{ font-size:12px; color:#5B6072; margin-top:4px; }
+  .guard-standby{ margin:22px auto 0; display:inline-flex; align-items:center; gap:8px; background:#F0F1F4; border:1px solid #E1E3E9; border-radius:20px; padding:8px 14px; font-size:11.5px; font-weight:600; color:#5B6072; }
+  .guard-standby .pulse{ width:7px;height:7px;border-radius:50%; background:#8B90A0; position:relative; }
+  .guard-standby .pulse::after{ content:''; position:absolute; inset:-4px; border-radius:50%; border:1.5px solid #8B90A0; opacity:0.5; animation:pulseRing 2s ease-out infinite; }
+  @keyframes pulseRing{ 0%{ transform:scale(0.6); opacity:0.6; } 100%{ transform:scale(1.9); opacity:0; } }
+  .open-check{ margin-top:30px; background:#FBEEDA; color:#8A5A17; border:1.5px solid #EFD3A5; border-radius:14px; padding:14px 16px; font-family:'Inter',sans-serif; font-size:12.5px; font-weight:600; cursor:pointer; width:100%; }
+  .decline2{ margin-top:12px; background:transparent; border:none; color:#C6503B; font-size:12px; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; }
+
+  .screen-view.sheet-mode{ padding:0; }
+  .call-backdrop{ padding:22px 22px 16px; text-align:center; background:#F3F4F7; flex-shrink:0; }
+  .call-backdrop .avatar-sm{ width:36px;height:36px;border-radius:50%; background:#D8DCE6; margin:0 auto 8px; display:flex;align-items:center;justify-content:center; }
+  .call-backdrop .bnum{ font-family:'Sora',sans-serif; font-weight:700; font-size:12.5px; }
+  .call-backdrop .bstatus{ font-size:10.5px; color:#5B6072; margin-top:3px; }
+  .sheet{ background:#fff; border-radius:20px 20px 0 0; margin-top:-14px; padding:20px 20px 22px; box-shadow:0 -8px 20px rgba(0,0,0,0.06); flex:1; }
+  .sheet-handle{ width:36px;height:4px;border-radius:3px; background:#E3E1D8; margin:0 auto 16px; }
 
   .guard-banner{ background:#FBEEDA; border:1px solid #EFD3A5; border-radius:14px; padding:13px 15px; display:flex; gap:10px; align-items:flex-start; margin-bottom:16px; }
   .guard-banner .t{ font-size:12.5px; font-weight:700; color:#8A5A17; }
@@ -422,18 +456,27 @@
   .q-block{ margin-bottom:16px; }
   .q-block .q{ font-size:13.5px; font-weight:600; margin-bottom:9px; }
   .opt-row{ display:flex; gap:8px; }
-  .opt{ flex:1; text-align:center; padding:10px 6px; border-radius:10px; border:1.5px solid #E3E1D8; font-size:12.5px; font-weight:600; color:#5B6072; }
-  .opt.picked-yes{ border-color:#C6503B; background:#FBE7E1; color:#C6503B; }
-  .opt.picked-no{ border-color:#2F8F86; background:#E4F1EF; color:#2F8F86; }
+  .opt{ flex:1; text-align:center; padding:11px 6px; border-radius:10px; border:1.5px solid #E3E1D8; font-size:12.5px; font-weight:600; color:#5B6072; cursor:pointer; background:#fff; transition:all .15s ease; font-family:'Inter',sans-serif; }
+  .opt:hover{ border-color:#C7C2B3; }
+  .opt.picked-risky{ border-color:#C6503B; background:#FBE7E1; color:#C6503B; }
+  .opt.picked-safe{ border-color:#2F8F86; background:#E4F1EF; color:#2F8F86; }
+  .opt:disabled{ cursor:default; }
 
   .gauge-wrap{ display:flex; flex-direction:column; align-items:center; margin:6px 0 16px; }
-  .gauge-num{ font-family:'Sora',sans-serif; font-size:38px; font-weight:800; color:#C6503B; line-height:1; }
-  .gauge-label{ font-size:12px; font-weight:700; color:#C6503B; text-transform:uppercase; letter-spacing:0.05em; margin-top:4px; }
+  .gauge-num{ font-family:'Sora',sans-serif; font-size:38px; font-weight:800; line-height:1; }
+  .gauge-label{ font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; margin-top:4px; }
+  .gauge-wrap.high .gauge-num, .gauge-wrap.high .gauge-label{ color:#C6503B; }
+  .gauge-wrap.medium .gauge-num, .gauge-wrap.medium .gauge-label{ color:#C9862B; }
+  .gauge-wrap.low .gauge-num, .gauge-wrap.low .gauge-label{ color:#2F8F86; }
   .gauge-bar{ width:100%; height:8px; border-radius:6px; background:#EFE9DC; margin-top:14px; overflow:hidden; }
-  .gauge-fill{ height:100%; width:82%; background:linear-gradient(90deg,#E3A857,#C6503B); border-radius:6px; }
+  .gauge-fill{ height:100%; border-radius:6px; transition:width .5s ease; }
+  .gauge-wrap.high .gauge-fill{ background:linear-gradient(90deg,#E3A857,#C6503B); }
+  .gauge-wrap.medium .gauge-fill{ background:linear-gradient(90deg,#EFD08A,#C9862B); }
+  .gauge-wrap.low .gauge-fill{ background:linear-gradient(90deg,#8FCFC7,#2F8F86); }
   .reason-list{ margin-top:14px; display:flex; flex-direction:column; gap:9px; }
   .reason-list .r{ font-size:12px; color:#40444E; display:flex; gap:8px; }
   .reason-list .r .dot{ width:5px;height:5px;border-radius:50%; background:#C6503B; margin-top:6px; flex-shrink:0; }
+  .reason-list.empty{ font-size:12px; color:#5B6072; font-style:normal; }
 
   .pause-view{ justify-content:center; align-items:center; text-align:center; }
   .breath-ring{ width:120px; height:120px; border-radius:50%; border:3px solid #E4F1EF; display:flex; align-items:center; justify-content:center; margin-bottom:20px; position:relative; }
@@ -536,9 +579,9 @@
         <ul class="indicator-list" id="stageList"></ul>
 
         <div class="ctrls">
-          <button class="btn ghost" id="prevBtn" onclick="prevStep()" disabled>← Sebelumnya</button>
+          <button class="btn ghost" id="prevBtn" onclick="backStep()" disabled>← Sebelumnya</button>
           <div style="display:flex; gap:10px;">
-            <button class="btn restart" id="restartBtn" onclick="goToStep(0)" style="display:none;">Ulangi</button>
+            <button class="btn restart" id="restartBtn" onclick="restartAll()" style="display:none;">Ulangi dari awal</button>
             <button class="btn primary" id="nextBtn" onclick="nextStep()">Lanjutkan →</button>
           </div>
         </div>
@@ -570,16 +613,217 @@
 
 <script>
 const stages = ["CHECK","UNDERSTAND","PAUSE","VERIFY","DECIDE"];
-const stageClass = { CHECK:"check", UNDERSTAND:"understand", PAUSE:"pause", VERIFY:"verify", DECIDE:"decide" };
 
-const steps = [
-  {
-    stage:"CHECK",
-    feat:"Fitur: Call Guard",
-    title:"Sebuah panggilan masuk",
-    desc:"Nomor tidak dikenal mengaku dari pihak bank. Ini adalah titik masuk skenario: pengguna belum tahu apakah panggilan ini asli atau upaya manipulasi.",
-    list:["Nomor tidak tersimpan di kontak","Mengklaim mewakili institusi resmi","Menelepon di luar jam operasional wajar"],
-    screen:`
+const questions = [
+  { id:'q1', text:'Apakah mereka meminta transfer uang atau kode OTP / kode rahasia?', risky:'yes', reason:'Meminta transfer atau kode OTP — institusi resmi tidak pernah memintanya lewat telepon atau chat.' },
+  { id:'q2', text:'Apakah ada ancaman atau tekanan waktu, misalnya harus sekarang juga?', risky:'yes', reason:'Memakai tekanan waktu supaya Anda terburu-buru mengambil keputusan.' },
+  { id:'q3', text:'Apakah mereka menyebut data pribadi Anda secara detail (NIK, nomor rekening, dll)?', risky:'yes', reason:'Mengetahui sebagian data pribadi Anda tidak otomatis membuktikan mereka pihak resmi.' },
+  { id:'q4', text:'Apakah Anda bisa memverifikasi identitas mereka lewat saluran resmi saat ini?', risky:'no', reason:'Identitas penelepon belum bisa dipastikan lewat saluran resmi mana pun.' }
+];
+
+const screenMeta = {
+  home:          { stage:'CHECK',      feat:'Mulai simulasi',                              title:'Mulai dari mana?', desc:'Prototipe ini punya dua jalur masuk: mengikuti kejadian saat telepon berlangsung, atau menganalisis manual setelahnya kalau sempat lupa mengaktifkan Call Guard karena panik.', list:[] },
+  callIncoming:  { stage:'CHECK',      feat:'Fitur: Deteksi nomor tak dikenal',             title:'Panggilan dari nomor tak dikenal', desc:'Nomor ini tidak tersimpan di kontak. Begitu panggilan diangkat, sistem langsung menandainya sebagai panggilan berisiko dan menyalakan Call Guard secara otomatis.', list:['Nomor tidak tersimpan di kontak','Mengklaim mewakili institusi resmi'] },
+  callActive:    { stage:'CHECK',      feat:'Fitur: Call Guard (standby)',                  title:'Call Guard standby otomatis', desc:'Karena nomornya tak dikenal / tak tersimpan di kontak, Call Guard otomatis standby — bukan mendengarkan isi pembicaraan, hanya siap dipakai. Pengguna sendiri yang membuka Smart Check kalau merasa ada yang janggal.', list:['Nomor tak tersimpan di kontak → status standby aktif','Tidak merekam atau menyadap isi percakapan'] },
+  manualEntry:   { stage:'CHECK',      feat:'Fitur: Analisis Manual',                       title:'Lupa aktifkan saat ditelepon?', desc:'Kebanyakan orang panik saat ditelepon dan lupa mengaktifkan Call Guard. Jalur ini membiarkan pengguna menganalisis kejadian itu belakangan, langsung dari aplikasi.', list:[] },
+  smartcheck:    { stage:'UNDERSTAND', feat:'Fitur: Smart Check',                           title:'Menjelaskan situasi lewat beberapa pertanyaan', desc:'Smart Check dibuka manual oleh pengguna — lewat overlay saat telepon masih berlangsung, atau lewat analisis manual setelahnya. Sistem tidak pernah mendengarkan pembicaraan; jawaban pengguna sendiri yang jadi datanya.', list:[] },
+  riskResult:    { stage:'UNDERSTAND', feat:'Fitur: Risk Assessment & Risk Explanation',    title:'Gambaran tingkat risiko', desc:'Dari jawaban Smart Check, aplikasi menghitung skor risiko dan menjelaskan alasannya satu per satu — bukan cuma label "berbahaya".', list:[] },
+  pause:         { stage:'PAUSE',      feat:'Fitur: The Pause',                             title:'Ambil waktu sejenak sebelum bertindak', desc:'Karena risikonya cukup tinggi, aplikasi sengaja memberi jeda hitungan detik. Tombol lanjut baru muncul setelah jeda ini selesai.', list:[] },
+  verify:        { stage:'VERIFY',     feat:'Fitur: Independent Verification & Trusted Circle', title:'Cek lewat sumber yang bisa dipercaya', desc:'Alih-alih memercayai nomor yang tadi menghubungi, pengguna diarahkan memverifikasi lewat saluran resmi atau bertanya ke orang terpercaya.', list:[] },
+  decide:        { stage:'DECIDE',     feat:'Fitur: Safety Summary',                        title:'Keputusan yang lebih aman', desc:'Ringkasan kejadian, skor risiko, dan keputusan akhir tersimpan sebagai catatan aman yang bisa dilihat lagi nanti.', list:[] }
+};
+
+let state = { screen:'home', entry:null, qIndex:0, answers:{}, history:[] };
+let pauseTimerId = null;
+let callTimerId = null;
+let callSeconds = 0;
+let pauseLeft = 8;
+
+function computeRisk(){
+  let score = 0;
+  const reasons = [];
+  questions.forEach(q=>{
+    if(state.answers[q.id] === q.risky){ score += 25; reasons.push(q.reason); }
+  });
+  const level = score >= 75 ? 'high' : score >= 50 ? 'medium' : 'low';
+  const label = level === 'high' ? 'Risiko tinggi' : level === 'medium' ? 'Risiko sedang' : 'Risiko rendah';
+  return { score, level, label, reasons };
+}
+
+function clearPauseTimer(){
+  if(pauseTimerId){ clearInterval(pauseTimerId); pauseTimerId = null; }
+}
+
+function goTo(screen){
+  state.history.push(state.screen);
+  state.screen = screen;
+  render();
+  if(screen === 'pause') startPauseTimer();
+  if(['callActive','smartcheck'].includes(screen) && state.entry === 'call'){
+    if(!callTimerId) startCallTimer();
+  } else {
+    clearCallTimer();
+  }
+}
+
+function startCallTimer(){
+  clearCallTimer();
+  callSeconds = 0;
+  updateCallTimerDisplay();
+  callTimerId = setInterval(()=>{
+    callSeconds++;
+    updateCallTimerDisplay();
+  }, 1000);
+}
+function clearCallTimer(){
+  if(callTimerId){ clearInterval(callTimerId); callTimerId = null; }
+}
+function updateCallTimerDisplay(){
+  const m = String(Math.floor(callSeconds/60)).padStart(2,'0');
+  const s = String(callSeconds%60).padStart(2,'0');
+  document.querySelectorAll('.call-timer-val').forEach(el => el.textContent = `${m}:${s}`);
+}
+
+function backStep(){
+  clearPauseTimer();
+  clearCallTimer();
+  if(state.history.length){
+    state.screen = state.history.pop();
+    render();
+  }
+}
+
+function restartAll(){
+  clearPauseTimer();
+  clearCallTimer();
+  callSeconds = 0;
+  state = { screen:'home', entry:null, qIndex:0, answers:{}, history:[] };
+  render();
+}
+
+function startEntry(mode){
+  state.entry = mode;
+  goTo(mode === 'call' ? 'callIncoming' : 'manualEntry');
+}
+
+function nextStep(){
+  switch(state.screen){
+    case 'callIncoming': goTo('callActive'); break;
+    case 'callActive': state.qIndex = 0; goTo('smartcheck'); break;
+    case 'manualEntry': state.qIndex = 0; goTo('smartcheck'); break;
+    case 'riskResult': {
+      const risk = computeRisk();
+      goTo(risk.level === 'low' ? 'decide' : 'pause');
+      break;
+    }
+    case 'verify': goTo('decide'); break;
+    default: break;
+  }
+}
+
+function answerQuestion(val){
+  const q = questions[state.qIndex];
+  state.answers[q.id] = val;
+  renderPhone();
+  setTimeout(()=>{
+    if(state.qIndex < questions.length - 1){
+      state.qIndex++;
+      render();
+    } else {
+      goTo('riskResult');
+    }
+  }, 420);
+}
+
+function startPauseTimer(){
+  clearPauseTimer();
+  pauseLeft = 8;
+  updatePauseDisplay();
+  pauseTimerId = setInterval(()=>{
+    pauseLeft--;
+    if(pauseLeft <= 0){
+      clearPauseTimer();
+      goTo('verify');
+    } else {
+      updatePauseDisplay();
+    }
+  }, 1000);
+}
+
+function updatePauseDisplay(){
+  const el = document.getElementById('pauseCount');
+  if(el) el.textContent = '00:0' + pauseLeft;
+}
+
+function renderRail(){
+  const track = document.getElementById('railTrack');
+  const meta = screenMeta[state.screen];
+  const activeIndex = stages.indexOf(meta.stage);
+  track.innerHTML = stages.map((s,i)=>{
+    let cls = 'rail-seg';
+    if(i === activeIndex) cls += ' active';
+    else if(i < activeIndex) cls += ' done';
+    return `<div class="${cls}">${s}</div>`;
+  }).join('');
+}
+
+function renderPanel(){
+  const meta = screenMeta[state.screen];
+  const chipClassMap = { CHECK:'check', UNDERSTAND:'understand', PAUSE:'pause', VERIFY:'verify', DECIDE:'decide' };
+  document.getElementById('stageChip').textContent = meta.stage;
+  document.getElementById('stageChip').className = 'chip ' + chipClassMap[meta.stage];
+  document.getElementById('stageFeat').textContent = meta.feat;
+  document.getElementById('stageTitle').textContent = meta.title;
+  document.getElementById('stageDesc').textContent = meta.desc;
+
+  const list = document.getElementById('stageList');
+  if(meta.list && meta.list.length){
+    list.style.display = 'flex';
+    list.innerHTML = meta.list.map(l => `<li><span class="dot"></span>${l}</li>`).join('');
+  } else {
+    list.style.display = 'none';
+    list.innerHTML = '';
+  }
+
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const restartBtn = document.getElementById('restartBtn');
+
+  prevBtn.disabled = state.history.length === 0;
+
+  const noNextScreens = ['home','smartcheck','pause','callActive'];
+  if(state.screen === 'decide'){
+    nextBtn.style.display = 'none';
+    restartBtn.style.display = 'inline-block';
+  } else if(noNextScreens.includes(state.screen)){
+    nextBtn.style.display = 'none';
+    restartBtn.style.display = 'none';
+  } else {
+    nextBtn.style.display = 'inline-block';
+    nextBtn.textContent = 'Lanjutkan →';
+    restartBtn.style.display = 'none';
+  }
+}
+
+function renderPhone(){
+  document.getElementById('screenBody').innerHTML = buildScreenHtml();
+}
+
+function buildScreenHtml(){
+  switch(state.screen){
+
+    case 'home': return `
+      <div class="screen-view active home-view">
+        <div class="app-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 2L4 5.5V11C4 16.2 7.4 20.9 12 22C16.6 20.9 20 16.2 20 11V5.5L12 2Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12.2L11.2 14.4L15.4 9.6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>SCAM BEFORE PAY</h3>
+        <div class="tag">Berhenti sejenak sebelum keputusan yang sulit dibatalkan.</div>
+        <div class="cta-group">
+          <button class="cta-btn primary" onclick="startEntry('call')">📞 Simulasikan telepon masuk</button>
+          <button class="cta-btn secondary" onclick="startEntry('manual')">✍️ Analisis manual (lupa aktifkan saat telepon)</button>
+        </div>
+      </div>`;
+
+    case 'callIncoming': return `
       <div class="screen-view active">
         <div class="call-card">
           <div class="avatar"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#5B6072" stroke-width="1.6"/><path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6" stroke="#5B6072" stroke-width="1.6"/></svg></div>
@@ -587,97 +831,103 @@ const steps = [
           <div class="caller">Mengaku sebagai "Bank ABC — Tim Keamanan"</div>
         </div>
         <div class="call-actions">
-          <button class="call-btn decline"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 15c5-4 11-4 16 0l-1 3.3c-.2.7-1 1.1-1.7.8l-2.6-1c-.5-.2-.8-.6-.8-1.1v-1.6c-2-.7-4.2-.7-6.2 0v1.6c0 .5-.3.9-.8 1.1l-2.6 1c-.7.3-1.5-.1-1.7-.8L4 15z" fill="#fff"/></svg></button>
-          <button class="call-btn accept"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z" fill="#fff"/></svg></button>
+          <button class="call-btn decline" onclick="nextStep()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 15c5-4 11-4 16 0l-1 3.3c-.2.7-1 1.1-1.7.8l-2.6-1c-.5-.2-.8-.6-.8-1.1v-1.6c-2-.7-4.2-.7-6.2 0v1.6c0 .5-.3.9-.8 1.1l-2.6 1c-.7.3-1.5-.1-1.7-.8L4 15z" fill="#fff"/></svg></button>
+          <button class="call-btn accept" onclick="nextStep()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1.1-.3 1.2.4 2.5.6 3.8.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.6.6 3.8.1.4 0 .8-.3 1.1L6.6 10.8z" fill="#fff"/></svg></button>
         </div>
-      </div>`
-  },
-  {
-    stage:"CHECK",
-    feat:"Fitur: Call Guard",
-    title:"Call Guard mulai bekerja",
-    desc:"Selama panggilan berlangsung, Call Guard memberi perlindungan awal dengan menandai pola bicara yang berpotensi berisiko — bukan memutus panggilan, hanya memberi sinyal.",
-    list:["Mendeteksi kata kunci: transfer, OTP, kode rahasia","Menandai nada mendesak dalam pembicaraan","Tetap berjalan diam-diam di latar belakang"],
-    screen:`
-      <div class="screen-view active">
-        <div class="guard-banner">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="flex-shrink:0; margin-top:1px;"><path d="M12 2l8 3.5V11c0 5.2-3.4 9.5-8 10.5C7.4 20.5 4 16.2 4 11V5.5L12 2z" stroke="#8A5A17" stroke-width="1.6"/><path d="M12 8v5" stroke="#8A5A17" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="16" r="0.8" fill="#8A5A17"/></svg>
-          <div>
-            <div class="t">Call Guard aktif</div>
-            <div class="d">Memantau pola percakapan untuk indikator risiko</div>
+      </div>`;
+
+    case 'callActive': return `
+      <div class="screen-view active callactive-view">
+        <div class="avatar"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#5B6072" stroke-width="1.6"/><path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6" stroke="#5B6072" stroke-width="1.6"/></svg></div>
+        <div class="number">+62 21 5000 XXXX</div>
+        <div class="status">Panggilan berlangsung • <span class="call-timer-val">00:00</span></div>
+        <div class="guard-standby"><span class="pulse"></span> Call Guard standby — nomor tak dikenal</div>
+        <button class="open-check" onclick="nextStep()">Rasa ada yang janggal? Buka Smart Check</button>
+        <button class="decline2" onclick="goTo('riskResult')">Lewati, semua terasa wajar</button>
+      </div>`;
+
+    case 'manualEntry': return `
+      <div class="screen-view active manual-view">
+        <div class="field">
+          <label>Sumber kejadian</label>
+          <input type="text" value="Riwayat panggilan — nomor tidak dikenal" readonly>
+        </div>
+        <div class="field">
+          <label>Nomor telepon</label>
+          <input type="text" placeholder="+62 21 5000 XXXX">
+        </div>
+        <div class="field">
+          <label>Mengaku sebagai</label>
+          <input type="text" placeholder="Contoh: Bank ABC — Tim Keamanan">
+        </div>
+        <div class="hint">Isi seingatnya saja. Langkah berikutnya akan menanyakan detail percakapannya lewat beberapa pertanyaan singkat.</div>
+      </div>`;
+
+    case 'smartcheck': {
+      const q = questions[state.qIndex];
+      const answered = state.answers[q.id];
+      const yesClass = answered === 'yes' ? (q.risky === 'yes' ? 'picked-risky' : 'picked-safe') : '';
+      const noClass = answered === 'no' ? (q.risky === 'no' ? 'picked-risky' : 'picked-safe') : '';
+      const dots = questions.map((_,i)=>`<div class="seg ${i <= state.qIndex ? 'filled' : ''}"></div>`).join('');
+      const questionCard = `
+        <div class="qprogress">${dots}</div>
+        <div class="q-block">
+          <div class="q">${q.text}</div>
+          <div class="opt-row">
+            <button class="opt ${yesClass}" onclick="answerQuestion('yes')" ${answered ? 'disabled' : ''}>Ya</button>
+            <button class="opt ${noClass}" onclick="answerQuestion('no')" ${answered ? 'disabled' : ''}>Tidak</button>
           </div>
-        </div>
-        <div class="transcript">
-          <b>Penelepon:</b> "Akun Bapak/Ibu akan diblokir dalam 10 menit. Segera sebutkan kode OTP yang dikirim untuk verifikasi."
-        </div>
-        <div class="flag-row"><span class="fdot"></span> Tekanan waktu terdeteksi</div>
-        <div class="flag-row"><span class="fdot"></span> Permintaan kode OTP terdeteksi</div>
-      </div>`
-  },
-  {
-    stage:"UNDERSTAND",
-    feat:"Fitur: Smart Check",
-    title:"Menjelaskan situasi lewat pertanyaan sederhana",
-    desc:"Smart Check membantu pengguna memahami apa yang sebenarnya sedang diminta, lewat pertanyaan singkat — bukan istilah teknis keamanan yang membingungkan.",
-    list:[],
-    screen:`
+        </div>`;
+      if(state.entry === 'call'){
+        const m = String(Math.floor(callSeconds/60)).padStart(2,'0');
+        const s = String(callSeconds%60).padStart(2,'0');
+        return `
+        <div class="screen-view active sheet-mode">
+          <div class="call-backdrop">
+            <div class="avatar-sm"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#5B6072" stroke-width="1.8"/><path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6" stroke="#5B6072" stroke-width="1.8"/></svg></div>
+            <div class="bnum">+62 21 5000 XXXX</div>
+            <div class="bstatus">Panggilan masih berlangsung • <span class="call-timer-val">${m}:${s}</span></div>
+          </div>
+          <div class="sheet">
+            <div class="sheet-handle"></div>
+            ${questionCard}
+          </div>
+        </div>`;
+      }
+      return `<div class="screen-view active">${questionCard}</div>`;
+    }
+
+    case 'riskResult': {
+      const risk = computeRisk();
+      const reasonsHtml = risk.reasons.length
+        ? risk.reasons.map(r => `<div class="r"><span class="dot"></span> ${r}</div>`).join('')
+        : `<div class="reason-list empty">Tidak ada indikator kuat yang ditemukan dari jawaban Anda.</div>`;
+      return `
       <div class="screen-view active">
-        <div class="q-block">
-          <div class="q">Apakah mereka meminta transfer atau kode OTP?</div>
-          <div class="opt-row"><div class="opt picked-yes">Ya</div><div class="opt">Tidak</div></div>
+        <div class="gauge-wrap ${risk.level}">
+          <div class="gauge-num">${risk.score}</div>
+          <div class="gauge-label">${risk.label}</div>
+          <div class="gauge-bar"><div class="gauge-fill" style="width:${risk.score}%"></div></div>
         </div>
-        <div class="q-block">
-          <div class="q">Apakah ada tekanan waktu atau ancaman?</div>
-          <div class="opt-row"><div class="opt picked-yes">Ya</div><div class="opt">Tidak</div></div>
-        </div>
-        <div class="q-block">
-          <div class="q">Apakah Anda bisa memverifikasi identitas mereka?</div>
-          <div class="opt-row"><div class="opt">Ya</div><div class="opt picked-no">Tidak</div></div>
-        </div>
-      </div>`
-  },
-  {
-    stage:"UNDERSTAND",
-    feat:"Fitur: Risk Assessment & Risk Explanation",
-    title:"Gambaran tingkat risiko",
-    desc:"Berdasarkan jawaban Smart Check, aplikasi menampilkan tingkat risiko beserta alasannya — pengguna tahu bukan hanya \"berbahaya\", tapi mengapa.",
-    list:[],
-    screen:`
-      <div class="screen-view active">
-        <div class="gauge-wrap">
-          <div class="gauge-num">82</div>
-          <div class="gauge-label">Risiko tinggi</div>
-          <div class="gauge-bar"><div class="gauge-fill"></div></div>
-        </div>
-        <div class="reason-list">
-          <div class="r"><span class="dot"></span> Meminta kode OTP — bank tidak pernah meminta ini lewat telepon</div>
-          <div class="r"><span class="dot"></span> Ancaman pemblokiran akun dalam waktu singkat</div>
-          <div class="r"><span class="dot"></span> Nomor tidak dapat diverifikasi sebagai saluran resmi</div>
-        </div>
-      </div>`
-  },
-  {
-    stage:"PAUSE",
-    feat:"Fitur: The Pause",
-    title:"Ambil waktu sejenak sebelum bertindak",
-    desc:"Di titik pengambilan keputusan yang paling rawan, aplikasi sengaja memperlambat — memberi ruang berpikir sebelum tindakan yang sulit dibatalkan.",
-    list:["Tidak ada tombol 'lanjutkan' yang bisa ditekan tergesa","Sesi tekanan waktu dari penelepon diputus di titik ini"],
-    screen:`
+        <div class="reason-list">${reasonsHtml}</div>
+      </div>`;
+    }
+
+    case 'pause': return `
       <div class="screen-view active pause-view">
         <div class="breath-ring"><div class="inner"><span>Tarik napas</span></div></div>
         <h4>Berhenti sejenak.</h4>
-        <p>Tidak ada keputusan yang harus diambil dalam hitungan detik. Ambil waktu Anda.</p>
-        <div class="pause-timer">00:15</div>
-      </div>`
-  },
-  {
-    stage:"VERIFY",
-    feat:"Fitur: Independent Verification & Trusted Circle",
-    title:"Cek lewat sumber yang bisa dipercaya",
-    desc:"Alih-alih memercayai nomor yang menghubungi, pengguna diarahkan memverifikasi lewat saluran resmi — atau bertanya pada orang yang dipercaya.",
-    list:[],
-    screen:`
+        <p>Risiko situasi ini cukup tinggi. Tidak ada keputusan yang harus diambil dalam hitungan detik.</p>
+        <div class="pause-timer" id="pauseCount">00:08</div>
+      </div>`;
+
+    case 'verify': {
+      const originNote = state.entry === 'call'
+        ? 'Berdasarkan panggilan yang baru saja berlangsung.'
+        : 'Berdasarkan analisis manual yang baru saja Anda isi.';
+      return `
       <div class="screen-view active">
+        <div class="transcript" style="margin-bottom:16px;">${originNote}</div>
         <div class="verify-opt">
           <div class="vi"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .6 2.9a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.5c.9.3 1.9.5 2.9.6a2 2 0 011.7 2z" stroke="#2F8F86" stroke-width="1.6"/></svg></div>
           <div><div class="vt">Hubungi nomor resmi</div><div class="vd">Gunakan nomor call center dari situs resmi, bukan nomor yang tadi menelepon.</div></div>
@@ -686,91 +936,42 @@ const steps = [
           <div class="vi"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="#2F8F86" stroke-width="1.6"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5" stroke="#2F8F86" stroke-width="1.6"/><circle cx="17" cy="9" r="2.4" stroke="#2F8F86" stroke-width="1.6"/><path d="M15.5 20c.2-2.3 1.9-4 4.5-4" stroke="#2F8F86" stroke-width="1.6"/></svg></div>
           <div><div class="vt">Tanyakan Trusted Circle</div><div class="vd">Kirim ringkasan situasi ke satu kontak terpercaya untuk pendapat kedua.</div></div>
         </div>
-      </div>`
-  },
-  {
-    stage:"DECIDE",
-    feat:"Fitur: Safety Summary",
-    title:"Keputusan yang lebih aman",
-    desc:"Dengan informasi yang sudah lebih jelas, pengguna mengambil keputusan sendiri — dan ringkasan kejadian tersimpan sebagai catatan aman.",
-    list:[],
-    screen:`
+      </div>`;
+    }
+
+    case 'decide': {
+      const risk = computeRisk();
+      const entryLabel = state.entry === 'call' ? 'Panggilan langsung (Call Guard)' : 'Analisis manual setelah kejadian';
+      const isSafe = risk.level === 'low';
+      const heading = isSafe ? 'Situasi tergolong aman' : 'Panggilan tidak dilanjutkan';
+      const sub = isSafe
+        ? 'Tidak ditemukan indikator kuat penipuan. Tetap disarankan waspada bila ada permintaan mendadak di kemudian hari.'
+        : 'Anda memutuskan untuk tidak memberikan data dan akan memverifikasi lewat saluran resmi terlebih dahulu.';
+      const decisionValue = isSafe ? 'Tetap waspada, tidak diblokir' : 'Tidak memberikan data';
+      const nextStepValue = isSafe ? 'Tidak ada tindakan mendesak' : 'Verifikasi via call center resmi';
+      return `
       <div class="screen-view active decide-view">
         <div class="check"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4 10-10" stroke="#2F8F86" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h4>Panggilan tidak dilanjutkan</h4>
-        <p class="sub">Anda memutuskan untuk tidak memberikan OTP dan akan menghubungi bank melalui saluran resmi.</p>
+        <h4>${heading}</h4>
+        <p class="sub">${sub}</p>
         <div class="summary-card">
           <div class="st">Ringkasan keamanan</div>
-          <div class="summary-row"><span class="k">Skenario</span><span class="v">Panggilan mengaku bank</span></div>
-          <div class="summary-row"><span class="k">Skor risiko</span><span class="v">82 — Tinggi</span></div>
-          <div class="summary-row"><span class="k">Keputusan</span><span class="v">Tidak memberikan data</span></div>
-          <div class="summary-row"><span class="k">Langkah lanjut</span><span class="v">Verifikasi via call center</span></div>
+          <div class="summary-row"><span class="k">Metode</span><span class="v">${entryLabel}</span></div>
+          <div class="summary-row"><span class="k">Skor risiko</span><span class="v">${risk.score} — ${risk.label}</span></div>
+          <div class="summary-row"><span class="k">Keputusan</span><span class="v">${decisionValue}</span></div>
+          <div class="summary-row"><span class="k">Langkah lanjut</span><span class="v">${nextStepValue}</span></div>
         </div>
-      </div>`
+      </div>`;
+    }
+
+    default: return '';
   }
-];
-
-let current = 0;
-
-function renderRail(){
-  const track = document.getElementById('railTrack');
-  track.innerHTML = stages.map((s,i)=>{
-    const activeStage = steps[current].stage;
-    const activeIndex = stages.indexOf(activeStage);
-    let cls = 'rail-seg';
-    if(s === activeStage) cls += ' active';
-    else if(i < activeIndex) cls += ' done';
-    return `<div class="${cls}" onclick="jumpToStage(${i})">${s}</div>`;
-  }).join('');
 }
 
-function jumpToStage(i){
-  const idx = steps.findIndex(st => st.stage === stages[i]);
-  if(idx !== -1) goToStep(idx);
-}
-
-function renderStep(){
-  const s = steps[current];
-  document.getElementById('stageChip').textContent = s.stage;
-  document.getElementById('stageChip').className = 'chip ' + stageClass[s.stage];
-  document.getElementById('stageFeat').textContent = s.feat;
-  document.getElementById('stageTitle').textContent = s.title;
-  document.getElementById('stageDesc').textContent = s.desc;
-
-  const list = document.getElementById('stageList');
-  if(s.list && s.list.length){
-    list.style.display = 'flex';
-    list.innerHTML = s.list.map(l => `<li><span class="dot"></span>${l}</li>`).join('');
-  } else {
-    list.style.display = 'none';
-    list.innerHTML = '';
-  }
-
-  document.getElementById('screenBody').innerHTML = s.screen;
-
-  document.getElementById('prevBtn').disabled = current === 0;
-  const nextBtn = document.getElementById('nextBtn');
-  const restartBtn = document.getElementById('restartBtn');
-  if(current === steps.length - 1){
-    nextBtn.style.display = 'none';
-    restartBtn.style.display = 'inline-block';
-  } else {
-    nextBtn.style.display = 'inline-block';
-    nextBtn.textContent = 'Lanjutkan →';
-    restartBtn.style.display = 'none';
-  }
-
+function render(){
+  renderPanel();
+  renderPhone();
   renderRail();
-}
-
-function nextStep(){
-  if(current < steps.length - 1){ current++; renderStep(); }
-}
-function prevStep(){
-  if(current > 0){ current--; renderStep(); }
-}
-function goToStep(i){
-  current = i; renderStep();
 }
 
 function tickClock(){
@@ -783,7 +984,8 @@ function tickClock(){
 tickClock();
 setInterval(tickClock, 15000);
 
-renderStep();
+render();
 </script>
+
 </body>
 </html>
